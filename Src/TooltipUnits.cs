@@ -1,10 +1,8 @@
 ﻿using HarmonyLib;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Video;
 
 namespace TooltipUnits
 {
@@ -30,8 +28,6 @@ namespace TooltipUnits
 
         private static bool debug_mode = false;
         public static bool MOD_ENABLED = false;
-
-        public static Dictionary<string, VideoPlayer> cached_videos;
 
         public static string _local_mods_directory = "";
         public static string _material_painter_directory = "";
@@ -81,15 +77,12 @@ namespace TooltipUnits
             TUDebug("Modspath: " + GameController.modsPath, always_show: true);
             TUDebug("ModspathRel: " + GameController.modsPathRelative, always_show: true);
 
-            //RegisterHotkeys();
-
             go = new GameObject();
             go.name = "TU GameObject";
         }
 
         public override void onDisabled()
         {
-            //_keys.UnregisterAll();
             UnityEngine.Object.DestroyImmediate(go);
 
             if (MOD_ENABLED)
@@ -98,13 +91,6 @@ namespace TooltipUnits
                 MOD_ENABLED = false;
                 TUDebug(debug_string: "DISABLING TU", always_show: true);
             }
-        }
-
-        public void RegisterHotkeys()
-        {
-            //_keys = new KeybindManager("MP2_KEYS", "Material Painter");
-            //_keys.AddKeybind("toggleMPWindow", "Toggle MP Window", "Show or Hide the Material Painter Window", KeyCode.Y);
-            //_keys.RegisterAll();
         }
 
         public void onDrawSettingsUI()
