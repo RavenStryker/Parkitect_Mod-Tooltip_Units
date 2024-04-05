@@ -109,13 +109,15 @@ namespace TooltipUnits
     [HarmonyPatch]
     public class UnitPatch
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Trust me, it's used. It's found by Harmony and not referred to by this mod directly.")]
         private static MethodBase TargetMethod() => AccessTools.Method(typeof(TextUtility), "formatHeightmark", parameters: new Type[]
         {
             typeof(float)
         });
 
         [HarmonyPrefix]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "<Pending>")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "Cuz I said so! (Also it thinks __result is unused even though it isn't.)")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "This is how Parkitect capitalizes it, so it has to match.")]
         public static bool formatHeightmark(ref string __result, float height)
         {
             if (Settings.Instance.unitSystem != Settings.UnitSystem.IMPERIAL)
