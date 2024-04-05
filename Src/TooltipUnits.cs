@@ -30,7 +30,6 @@ namespace TooltipUnits
         public static bool MOD_ENABLED = false;
 
         public static string _local_mods_directory = "";
-        public static string _material_painter_directory = "";
 
         public static void TUDebug(string debug_string, bool always_show = false)
         {
