@@ -8,13 +8,13 @@ namespace TooltipUnits
 {
     public class TU : AbstractMod, IModSettings
     {
-        public const string VERSION_NUMBER = "240404";
+        public const string VERSION_NUMBER = "v1.0";
 
         public override string getIdentifier() => "TooltipUnits";
 
-        public override string getName() => "Tooltip Units";
+        public override string getName() => "Coaster Builder: Metric & Imperial Height Units";
 
-        public override string getDescription() => @"Shows height marker tooltips in feet or meters.";
+        public override string getDescription() => @"Mod Inventor: RavenStryker" + Environment.NewLine + "Project Author: Chris Bradel" + Environment.NewLine + "Project Upkeep: RavenStryker" + Environment.NewLine + "Description: Shows height marker tooltips in feet or meters while using the coaster builder. Selecting Metric Units in the game settings will see meters, selecting Imperial will see feet.";
 
         public override string getVersionNumber() => VERSION_NUMBER;
 
@@ -121,24 +121,14 @@ namespace TooltipUnits
         {
             if (Settings.Instance.unitSystem != Settings.UnitSystem.IMPERIAL)
             {
-                float num = Mathf.Round(height * 3f - 9f);
-                if (height - num / 3f - 0.0625f < 0f)
-                {
-                    __result = num.ToString() + " m";
-                }
-
-                __result = $"{Mathf.RoundToInt(num)} m";
+                float newHeight = Mathf.Round(height * 3f - 9f);
+                __result = $"{newHeight} m";
             }
             else
             {
-                float num = Mathf.Round(height * 3f / 0.3048006f - 30f);
-                if (height - num * 0.3048006f / 3f - 0.0625f < 0f)
-                {
-                    __result = num.ToString() + " ft";
-                }
-                __result = $"{Mathf.RoundToInt(num)} ft";
+                float newHeight = Mathf.Round(height * 3f / 0.3048006f - 30f);
+                __result = $"{newHeight} ft";
             }
-
             return false;
         }
     }
