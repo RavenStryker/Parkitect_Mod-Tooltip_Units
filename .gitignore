@@ -1,5 +1,5 @@
 bin/
 libs/
-Lib/
+Lib/*.dll
 obj/
 .vs/
