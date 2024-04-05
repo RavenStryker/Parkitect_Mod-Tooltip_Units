@@ -133,4 +133,3 @@ UnityEngine.VirtualTexturingModule.dll
 UnityEngine.VRModule.dll
 UnityEngine.WindModule.dll
 UnityEngine.XRModule.dll
-_libs_go_here
