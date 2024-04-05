@@ -14,7 +14,7 @@ namespace TooltipUnits
 
         public override string getName() => "Coaster Builder: Metric & Imperial Height Units";
 
-        public override string getDescription() => @"Mod Inventor: RavenStryker" + Environment.NewLine + "Project Author: Chris Bradel" + Environment.NewLine + "Project Upkeep: RavenStryker" + Environment.NewLine + "Description: Shows height marker tooltips in feet or meters while using the coaster builder. Selecting Metric Units in the game settings will see meters, selecting Imperial will see feet.";
+        public override string getDescription() => @"Mod Inventor: RavenStryker" + Environment.NewLine + "Project Author: ChrisBradel" + Environment.NewLine + "Project Upkeep/Modifications: RavenStryker" + Environment.NewLine + "Description: Shows height marker tooltips in feet or meters while using the coaster builder. Selecting Metric Units within the game settings will show you meters, selecting Imperial will show you feet.";
 
         public override string getVersionNumber() => VERSION_NUMBER;
 
