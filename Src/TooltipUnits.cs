@@ -121,8 +121,33 @@ namespace TooltipUnits
         {
             if (Settings.Instance.unitSystem != Settings.UnitSystem.IMPERIAL)
             {
-                float newHeight = Mathf.Round(height * 3f - 9f);
-                __result = $"{newHeight} m";
+                float totalHeightInMeters = height * 3f - 9f;
+                int meters = Mathf.FloorToInt(totalHeightInMeters);
+                int centimeters = Mathf.FloorToInt(Mathf.Abs(totalHeightInMeters - meters) * 100);
+
+                // Adjust centimeters for negative heights
+                if (totalHeightInMeters < 0)
+                {
+                    centimeters = 100 - centimeters;
+                }
+
+                // Adjust centimeters to stay within the range 0-99
+                if (centimeters >= 100)
+                {
+                    centimeters -= 100;
+                }
+
+                string heightString;
+                if (centimeters > 0)
+                {
+                    heightString = $"{meters},{centimeters} m";
+                }
+                else
+                {
+                    heightString = $"{meters} m";
+                }
+
+                __result = heightString;
             }
             else
             {
